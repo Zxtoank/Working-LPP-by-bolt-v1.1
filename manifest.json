@@ -1,32 +1,23 @@
-{
+ {
   "name": "Locket Photo Print",
   "short_name": "LPP",
   "description": "Your personalized locket experience",
-  "id": "/", // Unique app ID (can be same as start_url)
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
   "orientation": "portrait",
-  "lang": "en-US", // Language specification
-  "dir": "ltr", // Text direction
-  "categories": ["shopping", "photos"], // App categories
-  "launch_handler": {
-    "client_mode": "auto" // Auto-launch behavior
-  },
   "icons": [
     {
       "src": "/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable" // Android adaptive icons
+      "type": "image/png"
     },
     {
       "src": "/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
   ],
   "screenshots": [
@@ -35,16 +26,6 @@
       "sizes": "1280x720",
       "type": "image/png",
       "label": "Home Screen"
-    },
-    {
-      "src": "/screenshot2.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "label": "Customization Screen"
     }
-  ],
-  "prefer_related_applications": false, // Disable native app prompts
-  "related_applications": [], // Empty array unless you have native apps
-  "scope_extensions": [], // For URL handling extensions
-  "iarc_rating_id": "" // Leave empty or add your IARC ID if needed
+  ]
 }
