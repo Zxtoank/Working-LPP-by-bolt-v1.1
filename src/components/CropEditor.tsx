@@ -56,6 +56,22 @@ export const CropEditor: React.FC<CropEditorProps> = ({
       y: e.clientY - rect.top,
     };
   };
+useEffect(() => {
+  const container = document.getElementById('crop-container');
+  if (!container) return;
+
+  const handleWheel = (e: WheelEvent) => {
+    e.preventDefault(); // Stop page from scrolling
+    const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9;
+    setScale(prev => Math.max(0.1, Math.min(5, prev * zoomFactor)));
+  };
+
+  container.addEventListener('wheel', handleWheel, { passive: false });
+
+  return () => {
+    container.removeEventListener('wheel', handleWheel);
+  };
+}, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isDragging.current) return;
@@ -111,13 +127,13 @@ export const CropEditor: React.FC<CropEditorProps> = ({
       {/* Interactive Preview Area */}
       <div className="bg-gray-100 rounded-xl p-4">
         <div 
-          className="w-full h-96 bg-white rounded-lg shadow-lg mx-auto flex items-center justify-center cursor-move relative overflow-hidden"
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          onWheel={handleWheel}
-        >
+  id="crop-container"
+  className="w-full h-96 bg-white rounded-lg shadow-lg mx-auto flex items-center justify-center cursor-move relative overflow-hidden"
+  onMouseDown={handleMouseDown}
+  onMouseMove={handleMouseMove}
+  onMouseUp={handleMouseUp}
+  onMouseLeave={handleMouseUp}
+>
           {croppedImage ? (
             <img
               src={croppedImage}
