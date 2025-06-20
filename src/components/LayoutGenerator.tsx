@@ -155,7 +155,7 @@ export const LayoutGenerator: React.FC<LayoutGeneratorProps> = ({
     <div className="bg-white rounded-2xl shadow-xl p-6">
       <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
         <div className="w-1 h-8 bg-gradient-to-b from-green-500 to-blue-600 rounded-full mr-4"></div>
-        4" × 6\" Layout (35 Photos)
+        4" × 6" Layout (35 Photos)
       </h2>
 
       {/* Controls */}
