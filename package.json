@@ -32,3 +32,10 @@
     "vite": "^5.4.2"
   }
 }
+"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "postbuild": "copy icon-192x192.png dist\\icon-192x192.png & copy icon-512x512.png dist\\icon-512x512.png",
+  "lint": "eslint .",
+  "preview": "vite preview"
+}
