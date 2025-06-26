@@ -2,18 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="manifest" href="/manifest.json">
-<link rel="icon" type="image/png" href="/icon-192x192.png" sizes="192x192">
-<link rel="icon" type="image/png" href="/icon-512x512.png" sizes="512x512">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#4361ee"/>
+    <meta name="theme-color" content="#4361ee" />
     <title>Locket Photo Print - Custom Photo Prints for Your Lockets</title>
-    
+
+    <!-- PWA Manifest & Icons -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/png" href="/images/icon-192x192.png" sizes="192x192" />
+    <link rel="icon" type="image/png" href="/images/icon-512x512.png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="/images/icon-192x192.png" />
+
     <!-- PayPal SDK -->
     <script src="https://www.paypal.com/sdk/js?client-id=AYGfQhLqyHnbG81wBKWoz-JNGksRtBw_sqvee4EKsg6Vz6TIpQuNd5uJyIuYpWrr8m7dEG14gnd6VWkL&currency=USD&intent=capture&enable-funding=venmo,paylater"></script>
+
+    <!-- Vite App Entry -->
     <script type="module" src="/src/main.tsx"></script>
   </head>
   <body>
     <div id="root"></div>
   </body>
 </html>
+
