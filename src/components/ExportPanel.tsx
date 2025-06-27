@@ -164,8 +164,10 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
       
       const hasPremiumAccess = localStorage.getItem('locket-premium-access') === 'true';
       const hasSubscription = localStorage.getItem(`subscription-${user.email}`);
+      const bypassUsers = ['axtonank@gmail.com']; // <-- your email here
+const isBypassUser = bypassUsers.includes(user?.email);
       
-      if (!user.isPremium && !hasPremiumAccess && !hasSubscription) {
+      if (!user.isPremium && !hasPremiumAccess && !hasSubscription && !isBypassUser) {
         // Store the pending download for after payment
         localStorage.setItem('pending-premium-download', JSON.stringify({ format, dpi }));
         handlePayPalPayment();
@@ -280,7 +282,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
           {exportOptions.map((option) => {
             const Icon = option.icon;
-            const isPremiumLocked = option.premium && (!user || (!user.isPremium && !hasSubscription)) && localStorage.getItem('locket-premium-access') !== 'true';
+            const isPremiumLocked = option.premium && (!user || (!user.isPremium && !hasSubscription) && !isBypassUser) && localStorage.getItem('locket-premium-access') !== 'true';
             
             return (
               <button
